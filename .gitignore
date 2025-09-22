@@ -30,6 +30,9 @@ tiles_cache.json
 dist/
 build/
 *.spec
+*.exe
 
 # Docker
 *.pid
+
+
