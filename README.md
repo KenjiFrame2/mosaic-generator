@@ -9,8 +9,8 @@
 
 ### 1. Клонировать проект
 ```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
+git clone https://github.com/KenjiFrame2/mosaic-generator.git
+cd mosaic-generator
 ```
 
 ### 2. Установить зависимости
