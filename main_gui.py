@@ -6,7 +6,7 @@ import os
 import tempfile
 import threading
 
-from main import create_mosaic  # используем твою функцию из main.py
+from main import create_mosaic
 
 
 class MosaicApp:
@@ -44,13 +44,13 @@ class MosaicApp:
         self.seam_entry.insert(0, "0.0")
         self.seam_entry.pack()
 
-        # metric selection
+        # выбор метрик
         tk.Label(root, text="Metric:").pack()
         self.metric_combo = ttk.Combobox(root, values=["color", "color+grad"], state="readonly")
         self.metric_combo.set("color")
         self.metric_combo.pack()
 
-        # rotate checkbox and max usage
+        # чекбокс поворота и максимальное использование
         self.rotate_var = tk.BooleanVar(value=False)
         tk.Checkbutton(root, text="Разрешить поворот тайлов (0°/90°/180°/270°)", variable=self.rotate_var).pack(anchor="w", padx=10)
 
@@ -130,7 +130,6 @@ class MosaicApp:
         self.mosaic_thumb_label.configure(image=self._mosaic_thumb)
 
     def _get_params(self):
-        # helper: read and validate params, return dict or raise ValueError
         try:
             grid_size = int(self.grid_entry.get())
         except Exception:

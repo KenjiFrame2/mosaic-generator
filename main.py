@@ -1,4 +1,3 @@
-# === main.py ===
 import argparse
 import os
 import json
@@ -52,7 +51,7 @@ def load_tile_features(tiles_path: str, grid_size: int, cache_filename: str = CA
             with open(cache_path, "r", encoding="utf-8") as f:
                 cache = json.load(f)
         except Exception:
-            print("⚠️ Warning: cache is corrupted or unreadable — rebuilding cache.")
+            print("Warning: cache is corrupted or unreadable — rebuilding cache.")
 
     tile_features = {}
     updated_cache = {}
@@ -77,7 +76,7 @@ def load_tile_features(tiles_path: str, grid_size: int, cache_filename: str = CA
                 color = average_color(img)
                 grad = compute_gradient_mean(img)
             except Exception as e:
-                print(f"⚠️ Failed to process tile {full}: {e}")
+                print(f"Failed to process tile {full}: {e}")
                 continue
 
         tile_features[full] = {"color": color, "grad": float(grad)}
@@ -87,7 +86,7 @@ def load_tile_features(tiles_path: str, grid_size: int, cache_filename: str = CA
         with open(cache_path, "w", encoding="utf-8") as f:
             json.dump(updated_cache, f, indent=2, ensure_ascii=False)
     except Exception as e:
-        print(f"⚠️ Could not write cache file '{cache_path}': {e}")
+        print(f"Could not write cache file '{cache_path}': {e}")
 
     return tile_features
 
